@@ -1,0 +1,17 @@
+{
+  "ENV": "test",
+  "aws": {
+    "accountId": 123456789,
+    "region": "us-east-1"
+  },
+  "channelAdapterSDK": {
+    "port": 32001,
+    "host": "localhost",
+    "pathToPostEvents": "/v1/event/",
+    "pathToHealthCheck": "/health/"
+  },
+  "channelAdapterRunner": {
+    "sdkIncomingPort": 32000,
+    "snsIncomingPort": 56432
+  }
+}

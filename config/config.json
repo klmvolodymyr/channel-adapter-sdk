@@ -1,0 +1,8 @@
+{
+  "channelAdapter": {
+    "port": 32000,
+    "host": "localhost",
+    "pathToPostEvents": "/v1/event/",
+    "incomingEventsPort": 32001
+  }
+}
