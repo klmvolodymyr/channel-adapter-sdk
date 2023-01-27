@@ -1,10 +1,10 @@
 module.exports = function (winston, level, destinations, logFilePath) {
+    var winstonTransports = [];
     var logFilePath = (logFilePath || 'logs/app.log');
     var destinations = (destinations || ['file', 'console']);
     var level = (level || 'verbose').toLowerCase();
     console.log(`Setting a winston logger with ${level} log level`);
     console.log(`Setting a winston logger to ${destinations}`);
-    var winstonTransports = [];
 
     if (destinations.indexOf('console') > -1) {
         winstonTransports.push(
@@ -14,7 +14,7 @@ module.exports = function (winston, level, destinations, logFilePath) {
                 prettyPrint: true,
                 json: false,
                 silent: false,
-                timestamp: false
+                timestamp: false,
             }));
     }
 
@@ -28,13 +28,11 @@ module.exports = function (winston, level, destinations, logFilePath) {
                 "maxfiles": 5,
                 "maxsize": 10485760,
                 "level": level,
-                "json": true
+                "json": true,
             }));
     }
 
-    var logger = new winston.createLogger({
-        transports: winstonTransports
-    });
+    var logger = new winston.createLogger({ transports: winstonTransports });
 
     return logger;
 };
